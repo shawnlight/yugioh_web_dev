@@ -3182,7 +3182,9 @@ li {
 
 ul.unstyled, ol.unstyled {
     margin-left: 0;
-    list-style: none
+    list-style: none;
+    position: absolute;
+    top: 672px;
 }
 
 ul.inline, ol.inline {

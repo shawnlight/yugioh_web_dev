@@ -51,7 +51,7 @@ em {
 }
 
 .summary-wrap .price {
-    color: #c81623
+    color: black;
 }
 
 .summary-wrap .price em {
@@ -254,11 +254,12 @@ ul.btn-choose li .btn-xlarge .addshopcar {
 
 .addshopcar {
     padding: 10px 25px;
-    background: #77b72c;
-    border: 1px solid #77b72c;
+    background: #2B2929;
+    border: 1px solid black;
     font-size: 16px;
     font-family: '微软雅黑';
-    color: #fff
+    color: #fff;
+    float: left;
 }
 
 ul.btn-choose li .btn-xlarge {

@@ -130,7 +130,7 @@ a {
 
 .goods-list .seckill-item .price .sec-price {
     font-size: 22px;
-    color: #e60012
+    color: black;
 }
 
 .goods-list .seckill-item .price .ever-price {
@@ -140,7 +140,8 @@ a {
 }
 
 .goods-list .seckill-item .num {
-    padding: 0 10px
+    padding: 0 10px;
+    font-size: 16px;
 }
 
 .goods-list .seckill-item .num div {
