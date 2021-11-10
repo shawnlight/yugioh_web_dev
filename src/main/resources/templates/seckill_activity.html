@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+	<title>light yugioh house</title>
+<!--	<link rel="icon" href="img/jiuzhanglogo.png">-->
+
+	<!-- 引入样式 -->
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+	<link rel="stylesheet" type="text/css" href="css/all.css"/>
+	<link rel="stylesheet" type="text/css" href="css/pages-seckill-index.css"/>
+
+
+</head>
+
+<body>
+<!-- 头部栏位 -->
+<!--页面顶部-->
+<div id="nav-bottom">
+	<!--顶部-->
+	<div class="nav-top">
+		<div class="top">
+			<div class="py-container">
+				<div class="shortcut">
+					<ul class="fl">
+						<li class="f-item">
+						<li class="f-item"><a href="login.html" target="_blank">login</a>　<span><a href="register.html" target="_blank">sign up</a></span></li>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!--头部-->
+		<div class="header">
+			<div class="py-container">
+				<div class="yui3-g Logo">
+<!--					<div class="yui3-u Left logoArea">-->
+<!--						<a class="logo-bd" title="九章" href="index.html" target="_blank"></a>-->
+<!--					</div>-->
+					<div class="yui3-u Rit searchArea">
+						<div class="search">
+							<form action="" class="sui-form form-inline">
+								<!--searchAutoComplete-->
+								<div class="input-append">
+									<input type="text" id="autocomplete" class="input-error input-xxlarge"/>
+									<button class="sui-btn btn-xlarge btn-danger" type="button">search</button>
+								</div>
+							</form>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="py-container index">
+	<!--banner-->
+	<div class="banner">
+		<img src="img/_/yugioh_banner.jpeg" class="img-responsive" alt="">
+	</div>
+	<!--秒杀时间-->
+	<div class="sectime">
+		<div class="item-time active">
+			<div class="time-clock">12:00</div>
+			<div class="time-state-on">
+				<span class="on-text">Seckill Time</span>
+<!--				<span class="on-over">：01:02:34</span>-->
+			</div>
+		</div>
+		<div class="item-time">
+			<div class="time-clock">14:00</div>
+			<div class="time-state-will">
+				<span>start soon</span>
+			</div>
+		</div>
+		<div class="item-time">
+			<div class="time-clock">16:00</div>
+			<div class="time-state-will">
+				<span>start soon</span>
+			</div>
+		</div>
+		<div class="item-time">
+			<div class="time-clock">18:00</div>
+			<div class="time-state-will">
+				<span>start soon</span>
+			</div>
+		</div>
+		<div class="item-time">
+			<div class="time-clock">20:00</div>
+			<div class="time-state-will">
+				<span>start soon</span>
+			</div>
+		</div>
+	</div>
+	<!--秒杀活动列表列表-->
+	<div class="goods-list" id="app">
+		<ul class="seckill" id="seckill">
+			<tr th:each="seckillActivity : ${seckillActivities}">
+				<li class="seckill-item">
+					<div class="pic">
+						<img th:src = "@{'/img/_/item_' + ${seckillActivity.commodityId} + '.jpeg'}"  alt=''>
+					</div>
+					<div class="intro">
+						<span th:text="${seckillActivity.name}">活动名称</span>
+					</div>
+					<div class='price'>
+						<b class='sec-price' th:text="'$'+${seckillActivity.seckillPrice}"></b>
+						<b class='ever-price' th:text="'$'+${seckillActivity.oldPrice}"></b>
+					</div>
+					<div class='num'>
+						<div>Sold
+							<span id='remain-stock' th:text="${seckillActivity.totalStock} - ${seckillActivity.availableStock}"></span>
+						</div>
+
+						<div class='progress'>
+							<div class='sui-progress progress-danger'>
+								<span th:style = "'width: ' + ((${
+								seckillActivity.totalStock} - ${seckillActivity.availableStock}) / ${seckillActivity.totalStock} * 100) + '%'" class='bar'></span>
+							</div>
+						</div>
+						<div>Total
+							<span id='total-stock' th:text="${
+							seckillActivity.totalStock}" > </span>
+						</div>
+					</div>
+					<a class='sui-btn btn-block btn-buy' th:href="@{'/item/'+${seckillActivity.id}}" target='_blank'>order now</a>
+				</li>
+			</tr>
+		</ul>
+	</div>
+</div>
+
+<!--回到顶部-->
+
+<!-- 底部栏位 -->
+
+<!-- 引入组件库 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.8/dist/vue.js"></script>
+<script  th:inline="javascript" src="js/pages/index.js"></script>
+
+
+
+</body>
+
+</html>

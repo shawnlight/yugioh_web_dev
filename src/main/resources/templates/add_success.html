@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" xmlns:th="http://www.thymeleaf.org">
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <title>seckill event</title>
+    <link rel="stylesheet" type="text/css" href="/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="/css/pages-getOrderInfo.css" />
+</head>
+
+<body>
+<!--head-->
+<!-- 头部栏位 -->
+<!--页面顶部-->
+<div id="nav-bottom">
+    <!--顶部-->
+    <div class="nav-top">
+        <div class="top">
+            <div class="py-container">
+                <div class="shortcut">
+                    <ul class="fl">
+                        <li class="f-item"></li>
+                        <li class="f-item">请<a href="login.html" target="_blank">login</a>　<span><a href="register.html"
+                                                                                                 target="_blank">sign up</a></span></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <!--头部-->
+        <div class="header">
+            <div class="py-container">
+                <div class="yui3-g Logo">
+                    <div class="yui3-u Rit searchArea">
+                        <div class="search">
+                            <form action="" class="sui-form form-inline">
+                                <!--searchAutoComplete-->
+                                <div class="input-append">
+                                    <input type="text" id="autocomplete" class="input-error input-xxlarge" />
+                                    <button class="sui-btn btn-xlarge btn-danger" type="button">search</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cart py-container" id="cart">
+    <!--主内容-->
+    <div class="checkout py-container">
+        <div class="checkout-tit">
+            <h4 class="tit-txt">Seckill Information</h4>
+        </div>
+        <div class="checkout-steps">
+            <div class="hr"></div>
+            <div class="payshipInfo">
+                <div class="hr"></div>
+                <div class="step-cont">
+                    <ul class="send-detail">
+                        <style>
+                            .dialog-card {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                            }
+
+                            .dialog-card>p {
+                                display: flex;
+                                flex-direction: row;
+                                min-width: 10rem;
+                            }
+
+                            .dialog-card>p>span {
+                                flex-grow: 1;
+                                text-align: center;
+                            }
+                        </style>
+                        <div class="dialog-card">
+                            <h1>Seckill Activiy Add Success</h1>
+                            <p>Even Name：<span th:text="${seckillActivity.name}"></span></p>
+                            <p>Old Price：<span th:text="${seckillActivity.oldPrice}"></span></p>
+                            <p>Even Price：<span th:text="${seckillActivity.seckillPrice}"></span></p>
+                            <p>Commody Quantity：<span th:text="${seckillActivity.availableStock}"></span></p>
+                        </div>
+                    </ul>
+                </div>
+                <div class="hr"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 底部栏位 -->
+
+<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
+
+<script src="/js/vue.js"></script>
+<script src="/js/axios.js"></script>
+</body>
+
+</html>
