@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>sign up</title>
+</head>
+
+<link rel="stylesheet" type="text/css" href="/css/register_exist.css" />
+<body>
+<form th:action="@{/signupAction}" method="post">
+    <div class="container">
+        <h1>Register</h1>
+        <hr>
+        <div class = "firsNametblock formblock">
+            <label for="firstName"><b>First Name</b></label>
+            <input type="text" placeholder="Enter First Name" name="firstName" id="firstName"  required>
+        </div>
+
+        <div class = "lastNameblock formblock">
+            <label for="lastName"><b>Last Name</b></label>
+            <input type="text" placeholder="Enter last Name" name="lastName" id="lastName"  required>
+        </div>
+
+        <div class = "emailblock formblock">
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Email already exist" name="email" id="email" oninput='check_email();' required>
+        </div>
+        <div class = "pswblock formblock" >
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" id="psw"
+                   oninput='check_pass();' required>
+        </div>
+        <div class = "pswrepeatblock formblock">
+            <label for="psw-repeat"><b>Repeat Password</b></label>
+            <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat"
+                   oninput='check_pass();' required>
+        </div>
+        <hr>
+        <div class = "registerblock formblock">
+            <button type="submit" class="registerbtn" id = 'submit' disabled>Register</button>
+        </div>
+    </div>
+
+    <div class="container signin">
+        <p>Already have an account? <a href="/login">Log in</a>.</p>
+    </div>
+</form>
+</body>
+
+
+<script src="/js/pages/registerExist.js"></script>
+</html>

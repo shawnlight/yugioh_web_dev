@@ -27,7 +27,15 @@
 				<div class="shortcut">
 					<ul class="fl">
 						<li class="f-item">
-						<li class="f-item"><a href="login.html" target="_blank">login</a>　<span><a href="register.html" target="_blank">sign up</a></span></li>
+						<li class="f-item" th:if="${userName == 'anonymousUser'}">
+							<a href="/login" target="_self">login</a>
+						　  <span><a href="/signup" target="_self">sign up</a></span>
+						</li>
+						<li class="f-item" th:if="${userName != 'anonymousUser'}">
+							<a href="/profile" target="_self" th:text="${userName}"></a>
+							<span><a href="/logout" target="_self">log out</a></span>
+						</li>
+
 						</li>
 					</ul>
 				</div>

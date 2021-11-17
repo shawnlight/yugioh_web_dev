@@ -5,9 +5,11 @@ public class User {
 
     private String userName;
 
-    private String address;
+    private String firstName;
 
-    private String phone;
+    private String lastName;
+
+    private String password;
 
     public Long getId() {
         return id;
@@ -25,19 +27,27 @@ public class User {
         this.userName = userName == null ? null : userName.trim();
     }
 
-    public String getAddress() {
-        return address;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
+    public void setFirstName(String firstName) {
+        this.firstName = firstName == null ? null : firstName.trim();
     }
 
-    public String getPhone() {
-        return phone;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
+    public void setLastName(String lastName) {
+        this.lastName = lastName == null ? null : lastName.trim();
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

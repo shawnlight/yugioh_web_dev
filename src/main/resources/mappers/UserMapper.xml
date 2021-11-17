@@ -4,11 +4,12 @@
   <resultMap id="BaseResultMap" type="com.light.seckill.db.po.User">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
-    <result column="address" jdbcType="VARCHAR" property="address" />
-    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="first_name" jdbcType="VARCHAR" property="firstName" />
+    <result column="last_name" jdbcType="VARCHAR" property="lastName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, user_name, address, phone
+    id, user_name, first_name, last_name, password
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
@@ -21,10 +22,9 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.light.seckill.db.po.User">
-    insert into seckill_user (id, user_name, address, 
-      phone)
-    values (#{id,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=VARCHAR})
+    insert into seckill_user (id, user_name, first_name, last_name, password)
+    values (#{id,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{firstName,jdbcType=VARCHAR},
+      #{lastName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.light.seckill.db.po.User">
     insert into seckill_user
@@ -35,11 +35,14 @@
       <if test="userName != null">
         user_name,
       </if>
-      <if test="address != null">
-        address,
+      <if test="firstName != null">
+        first_name,
       </if>
-      <if test="phone != null">
-        phone,
+      <if test="lastName != null">
+        last_name,
+      </if>
+      <if test="password != null">
+        password,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -49,25 +52,39 @@
       <if test="userName != null">
         #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="address != null">
-        #{address,jdbcType=VARCHAR},
+      <if test="firstName != null">
+        #{first_name,jdbcType=VARCHAR},
       </if>
-      <if test="phone != null">
-        #{phone,jdbcType=VARCHAR},
+      <if test="lastName != null">
+        #{last_name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
+
+  <select id="selectByUserName" resultType="com.light.seckill.db.po.Order" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from seckill_user
+    where user_name = #{userName, jdbcType=VARCHAR}
+  </select>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.light.seckill.db.po.User">
     update seckill_user
     <set>
       <if test="userName != null">
         user_name = #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="address != null">
-        address = #{address,jdbcType=VARCHAR},
+      <if test="firstName != null">
+        first_name= #{firstName,jdbcType=VARCHAR},
       </if>
-      <if test="phone != null">
-        phone = #{phone,jdbcType=VARCHAR},
+      <if test="lastName != null">
+        last_name = #{lastName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        passowrd = #{password,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -75,8 +92,11 @@
   <update id="updateByPrimaryKey" parameterType="com.light.seckill.db.po.User">
     update seckill_user
     set user_name = #{userName,jdbcType=VARCHAR},
-      address = #{address,jdbcType=VARCHAR},
-      phone = #{phone,jdbcType=VARCHAR}
+      first_name = #{firstName,jdbcType=VARCHAR},
+      last_name = #{lastName,jdbcType=VARCHAR}
+      password = #{password,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+
 </mapper>

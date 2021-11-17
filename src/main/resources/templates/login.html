@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>log in</title>
+    <link rel="stylesheet" type="text/css" href="/css/login.css" />
+</head>
+<body>
+<!--th:action="@{/login}"-->
+<form action = "/login" method="post">
+    <div class="container">
+        <h1>Log in</h1>
+        <hr>
+        <div class = "emailblock formblock">
+            <label for="email"><b>Email</b></label>
+            <input type="text"   name="email" id="email" required>
+        </div>
+        <div class = "pswblock formblock" >
+            <label for="psw"><b>Password</b></label>
+            <input type="password"   name="psw" id="psw" required>
+        </div>
+        <div class = "error-block formblock"th:if="${param.error}"}>
+            <p id = "error-msg">wrong email or password</p>
+        </div>
+        <hr>
+        <div class = "login-block formblock">
+            <button type="submit" class="login-btn" id = 'submit'>log in</button>
+        </div>
+    </div>
+
+    <div class="container signup">
+        <p>Do not have an account? <a href="/signup">sign up</a>.</p>
+    </div>
+</form>
+</body>
+</html>
